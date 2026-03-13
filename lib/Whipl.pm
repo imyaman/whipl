@@ -4,7 +4,7 @@ use strict;
 use warnings;
 use XSLoader;
 
-our $VERSION = '0.01';
+our $VERSION = '1.0.0';
 
 XSLoader::load('Whipl', $VERSION);
 

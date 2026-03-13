@@ -147,7 +147,7 @@ http_response_t* http_request(const char *method, const char *url, http_options_
         }
     }
     if (!has_ua) {
-        const char *ua = "User-Agent: whipl/0.01 (Perl/XS::JIT; like curl but camel-powered)\r\n";
+        const char *ua = "User-Agent: whipl/1.0.0 (Perl/XS::JIT; like curl but camel-powered)\r\n";
         buffer_append(req, ua, strlen(ua));
     }
 
