@@ -2,8 +2,8 @@
 #include "EXTERN.h"
 #include "perl.h"
 #include "XSUB.h"
-#include "../src/http.h"
-#include "whipl.h"
+#include "src/http.h"
+#include "xs/whipl.h"
 #include <string.h>
 
 WhiplResponse* whipl_request(const char *method, const char *url, WhiplOptions *opts) {
