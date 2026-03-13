@@ -78,6 +78,9 @@ make
 
 # Include headers in output
 ./bin/whipl --include http://example.com
+
+# Custom User-Agent
+./bin/whipl -A 'MyBot/1.0' http://example.com
 ```
 
 ## Features
@@ -87,6 +90,7 @@ make
 - Custom headers (-H)
 - Request body (-d)
 - Basic authentication (-u)
+- Custom User-Agent (-A)
 - Follow redirects (-L)
 - Verbose mode (-v)
 - Timeout support
