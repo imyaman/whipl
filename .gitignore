@@ -1,0 +1,22 @@
+# Build artifacts
+*.o
+*.so
+*.bs
+blib/
+pm_to_blib
+xs/whipl.c
+
+# ExtUtils::MakeMaker
+Makefile
+MYMETA.json
+MYMETA.yml
+
+# Internal dev notes
+plan.md
+architecture.md
+AGENTS.md
+SUMMARY.md
+PHASE5.md
+VERBOSE.md
+COMPARISON.md
+RELEASE.md
