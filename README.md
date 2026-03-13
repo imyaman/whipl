@@ -56,7 +56,7 @@ make
 ./bin/whipl -X POST -d 'secure=data' https://httpbin.org/post
 
 # Custom headers
-./bin/whipl -H 'User-Agent: whipl' -H 'Accept: application/json' http://api.example.com
+./bin/whipl -H 'Content-Type: application/json' -H 'Accept: application/json' http://api.example.com
 
 # Basic authentication
 ./bin/whipl -u 'user:password' http://example.com/protected
