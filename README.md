@@ -1,6 +1,6 @@
 # whipl - Fast HTTP Client
 
-A curl clone built with Perl and XS for maximum performance.
+A curl clone built with Perl and XS::JIT for maximum performance.
 
 ## Installation
 
