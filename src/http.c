@@ -135,7 +135,9 @@ http_response_t* http_request(const char *method, const char *url, http_options_
     buffer_t *req = buffer_new(512);
     char req_line[2048];
 
-    snprintf(req_line, sizeof(req_line), "%s %s HTTP/1.1\r\nHost: %s\r\n", method, path, host);
+    snprintf(req_line, sizeof(req_line),
+        "%s %s HTTP/1.1\r\nHost: %s\r\nUser-Agent: whipl/0.01 (Perl/XS::JIT; like curl but camel-powered)\r\n",
+        method, path, host);
     buffer_append(req, req_line, strlen(req_line));
 
     if (opts && opts->headers) {
