@@ -8,18 +8,19 @@ use lib "$FindBin::Bin/../blib/arch";
 use Whipl;
 use Getopt::Long;
 
-my ($method, @headers, $data, $user, $follow, $verbose, $output, $head_only, $include_headers, $help);
+my ($method, @headers, $data, $user, $follow, $verbose, $output, $head_only, $include_headers, $user_agent, $help);
 GetOptions(
-    'X|request=s' => \$method,
-    'H|header=s@' => \@headers,
-    'd|data=s'    => \$data,
-    'u|user=s'    => \$user,
-    'L|location'  => \$follow,
-    'v|verbose'   => \$verbose,
-    'o|output=s'  => \$output,
-    'I|head'      => \$head_only,
-    'include'     => \$include_headers,
-    'help'        => \$help,
+    'X|request=s'    => \$method,
+    'H|header=s@'    => \@headers,
+    'd|data=s'       => \$data,
+    'u|user=s'       => \$user,
+    'A|user-agent=s' => \$user_agent,
+    'L|location'     => \$follow,
+    'v|verbose'      => \$verbose,
+    'o|output=s'     => \$output,
+    'I|head'         => \$head_only,
+    'include'        => \$include_headers,
+    'help'           => \$help,
 ) or die "Usage: whipl [options] <url>\nTry 'whipl --help' for more information.\n";
 
 if ($help) {
@@ -36,6 +37,7 @@ Options:
   -L, --location         Follow redirects
   -v, --verbose          Verbose output (shows request/response details)
   -o, --output FILE      Save output to file
+  -A, --user-agent STR   Custom User-Agent string
   -I, --head             Show headers only (uses HEAD method)
       --include          Include headers in output
       --help             Show this help message
@@ -64,6 +66,10 @@ $opts{headers} = \@headers if @headers;
 $opts{body} = $data if $data && !$head_only;
 $opts{follow_redirects} = 1 if $follow;
 $opts{verbose} = 1 if $verbose;
+
+if ($user_agent) {
+    push @{$opts{headers}}, "User-Agent: $user_agent";
+}
 
 if ($user) {
     require MIME::Base64;
